@@ -24,7 +24,7 @@ const val TIMEOUT = 5000L
 class ChangeTextNewTest {
 
  private lateinit var device: UiDevice
- private val originalText = "Привет, UiAutomator!"
+ //private val originalText = "Привет, UiAutomator!"
  private val textToSet = "My first test"
  private val textToSet2 = ""
 
@@ -73,13 +73,13 @@ class ChangeTextNewTest {
   val packageName = MODEL_PACKAGE
   waitForPackage(packageName)
 
-  val myText = originalText
+  val originalText = "Привет, UiAutomator!"
 
   device.findObject(By.res(packageName, "userInput")).text = textToSet2
   device.findObject(By.res(packageName, "buttonChange")).click()
 
   val result = device.findObject(By.res(packageName, "textToBeChanged")).text
-  assertEquals(result, myText)
+  assertEquals(result, originalText)
  }
 
  @Test
