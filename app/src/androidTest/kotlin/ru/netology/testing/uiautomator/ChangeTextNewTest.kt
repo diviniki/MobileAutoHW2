@@ -70,9 +70,11 @@ class ChangeTextNewTest {
 
  @Test
  fun testInputEmptyText() {
-  val originalText = "Привет, UiAutomator!"
+  // val originalText = "Привет, UiAutomator!"
   val packageName = MODEL_PACKAGE
   waitForPackage(packageName)
+
+  val originalText = device.findObject(By.res(packageName, “textToBeChanged”)).text
 
   device.findObject(By.res(packageName, "userInput")).text = textToSet2
   device.findObject(By.res(packageName, "buttonChange")).click()
